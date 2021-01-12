@@ -16,7 +16,11 @@ class Oystercard
   def deduct(amount)
     @balance -= amount
   end
-
+  
+  def in_journey?
+    @in_journey
+  end
+  
   def touch_in
     @in_journey = true
   end
