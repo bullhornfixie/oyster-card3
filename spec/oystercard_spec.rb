@@ -26,13 +26,19 @@ end
   end
 
   context 'travelling' do
-  
+  let(:station ){ double :station }
     it "can check journey staus of card" do
       expect(subject.in_journey?).to be(true).or be(false)
     end 
 
     it "will raise error if you do not have enough funds" do
       expect{ subject.touch_in }.to raise_error "Not enough funds"
+    end
+
+    it "will record the entry station where you touch in" do
+      
+      subject.touch_in(station)
+       expect(subject.entry_station).to eq station
     end
 
     it "will deduct fare when touching out" do

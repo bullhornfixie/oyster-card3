@@ -18,9 +18,10 @@ class Oystercard
     @in_journey
   end
   
-  def touch_in
+  def touch_in(station)
     raise "Not enough funds" if @balance < MINIMUM_BALANCE
     @in_journey = true
+
   end
 
   def touch_out
