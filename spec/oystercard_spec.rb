@@ -30,16 +30,20 @@ end
   end
 
   context 'travelling' do
-    before do
-      subject.touch_in
-    end
+  #   before do
+  #     subject.touch_in
+  #   end
     
     it "can check journey staus of card" do
-      expect(subject.in_journey?).to be true
+      expect(subject.in_journey?).to be(true).or be(false)
     end 
 
-    it 'can touch in' do
-      expect(subject.touch_in).to be true
+    # it 'can touch in' do
+    #   expect(subject.touch_in).to be true
+    # end
+
+    it "will raise error if you do not have enough funds" do
+      expect{ subject.touch_in }.to raise_error "Not enough funds"
     end
 
     it 'can touch out' do
