@@ -82,9 +82,6 @@ describe Oystercard do
       subject.touch_in("Victoria")
       subject.touch_out("Moorgate")
       expect(subject.journeys[-1]).to include(:entry_station => "Victoria", :exit_station => "Moorgate")
-      
-      #[:entry_station][:exit_station]).to eq("Victoria", "Moorgate")
-      #expect(subject.journeys[-1][:exit_station]).to eq "Moorgate"
     end
   end
 
